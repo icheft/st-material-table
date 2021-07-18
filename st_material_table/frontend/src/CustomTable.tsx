@@ -43,7 +43,7 @@ const useStyles = makeStyles({
     width: "100%",
   },
   container: {
-    maxHeight: 800,
+    maxHeight: 650,
   },
   tablePaginationSelectIcon: {
     color: "#f8f8f2",

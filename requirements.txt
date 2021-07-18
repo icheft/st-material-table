@@ -16,4 +16,4 @@ tk==0.1.0
 urllib3==1.26.6
 wincertstore==0.2
 streamlit==0.84.0
-st-material-table==0.0.1
+st-material-table==0.0.2

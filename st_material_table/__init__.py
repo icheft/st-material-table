@@ -34,12 +34,11 @@ if not _RELEASE:
 
     st.title('Streamlit Custom Material Table Test')
 
-    d = {'col1': [1, 2], 'col2': [3, 4]}
-    df = pd.DataFrame(data=d)
+    course_df = pd.read_csv(st.secrets['db']['url'], index_col=0)
 
     # Create an instance of our component with a constant `name` arg, and
     # print its output value.
-    _ = st_material_table(df)
+    _ = st_material_table(course_df)
 
     footer = """
 
