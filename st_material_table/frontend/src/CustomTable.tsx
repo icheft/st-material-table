@@ -13,7 +13,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableFooter,
   TableContainer,
   TableHead,
   TablePagination,
@@ -271,10 +270,7 @@ const TableRows = (props: TableRowsProps) => {
   if (isHeader) {
     const tableRows = range(startRow, endRow).map((rowIndex) => {
       return range(0, columns).map((columnIndex) => {
-        const { classNames, content, id, type } = table.getCell(
-          rowIndex,
-          columnIndex
-        )
+        const { content } = table.getCell(rowIndex, columnIndex)
 
         return (
           <TableCell
@@ -295,10 +291,7 @@ const TableRows = (props: TableRowsProps) => {
   } else {
     const tableRows = range(startRow, endRow).map((rowIndex) => {
       const cells = range(0, columns).map((columnIndex) => {
-        const { classNames, content, id, type } = table.getCell(
-          rowIndex,
-          columnIndex
-        )
+        const { content } = table.getCell(rowIndex, columnIndex)
 
         return (
           <TableCell
