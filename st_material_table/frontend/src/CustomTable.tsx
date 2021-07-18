@@ -51,6 +51,12 @@ const useStyles = makeStyles({
   tablePaginationSelect: {
     color: "#f8f8f2",
   },
+  select: {
+    "&$focus": {
+      backgroundColor: "#44475a",
+    },
+    focus: {},
+  },
 })
 
 const useStyles1 = makeStyles((theme: Theme) =>
@@ -236,7 +242,7 @@ const StickyHeadTable = (props: ComponentProps) => {
               page={page}
               SelectProps={{
                 inputProps: { "aria-label": "rows per page" },
-                native: true,
+                native: false,
               }}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
@@ -291,17 +297,54 @@ const TableRows = (props: TableRowsProps) => {
   } else {
     const tableRows = range(startRow, endRow).map((rowIndex) => {
       const cells = range(0, columns).map((columnIndex) => {
-        const { content } = table.getCell(rowIndex, columnIndex)
-
-        return (
-          <TableCell
-            key={columnIndex}
-            align="center"
-            style={{ color: "#f8f8f2" }}
-          >
-            {content.toString()}
-          </TableCell>
-        )
+        const { content, type } = table.getCell(rowIndex, columnIndex)
+        switch (type) {
+          case "blank": {
+            return (
+              <TableCell
+                key={columnIndex}
+                align="center"
+                style={{ color: "#f8f8f2" }}
+              />
+            )
+          }
+          case "index": {
+            return (
+              <TableCell
+                key={columnIndex}
+                align="center"
+                style={{ color: "#f8f8f2" }}
+              >
+                {Number(content)}
+              </TableCell>
+            )
+          }
+          case "columns": {
+            return (
+              <TableCell
+                key={columnIndex}
+                align="center"
+                style={{ color: "#f8f8f2" }}
+              >
+                {content.toString()}
+              </TableCell>
+            )
+          }
+          case "data": {
+            return (
+              <TableCell
+                key={columnIndex}
+                align="center"
+                style={{ color: "#f8f8f2" }}
+              >
+                {content.toString()}
+              </TableCell>
+            )
+          }
+          default: {
+            throw new Error(`Cannot parse type "${type}".`)
+          }
+        }
       })
       return (
         <TableRow hover role="checkbox" tabIndex={-1} key={rowIndex}>
