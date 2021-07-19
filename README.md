@@ -27,8 +27,18 @@ The ultimate goal is to replicate [those Material-UI tables](https://material-ui
 ## How to Use
 
 ```sh
-pip install st_material_table
+pip install st-material-table
 ```
+
+In your `app.py`:
+
+```py
+from st_material_table import st_material_table
+
+_ = st_material_table(display_df)
+```
+
+That shall do! Currently, it doesn't support customization. It uses the default theming - [Dracula Theme](https://github.com/dracula/streamlit).
 
 ## Contributions
 
