@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://pypi.org/project/st-material-table/"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/282/classical-building_1f3db-fe0f.png" alt="mgt2001" width="50"></a>
+  <a href="https://pypi.org/project/st-material-table/"><img src="https://em-content.zobj.net/source/twitter/408/classical-building_1f3db-fe0f.png" width="50"></a>
   <br>
   Streamlit Material-UI Table
   <br>
